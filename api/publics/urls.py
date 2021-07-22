@@ -1,10 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 
-from rest_framework.routers import DefaultRouter
-from .views                 import AccountViewSet
+from .views import RoomAPIView
 
-router = DefaultRouter()
-router.register('', AccountViewSet)
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', RoomAPIView.as_view()),
 ]
