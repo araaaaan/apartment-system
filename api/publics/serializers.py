@@ -6,4 +6,4 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User_APT
-        fields = ('floor','cost',)
+        fields = ('floor','password','cost',)
