@@ -65,6 +65,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+ACCOUNT_EMAIL_REQUIRED = False            
+ACCOUNT_USERNAME_REQUIRED = True       
 
 ROOT_URLCONF = 'aptment.urls'
 
