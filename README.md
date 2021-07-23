@@ -27,6 +27,10 @@ docker 설치 (다운로드)
 
 https://www.docker.com/products/docker-desktop
 
+git clone 파일 실행
+```
+```
+
 docker compose 실행 
 ```
 $ docker-compose up
@@ -39,7 +43,11 @@ $ docker-compose up
  3. api/publics에서  자신의 호수(4자리)와 부여 받은 비밀번호 입력 후 개인 관리비 확인가능
 
 
-> ## 트리구조
+
+
+
+
+> ## 폴더 구조
 ```
 .
 ├── Dockerfile
@@ -75,3 +83,5 @@ $ docker-compose up
 ├── my_settings.py
 └── requirements.txt
 ```
+
+
