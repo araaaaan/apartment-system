@@ -42,13 +42,13 @@ $ docker-compose up
  2. 인증 후 api/admin에서 전체 호수 관리비 확인 및 관리비 입력가능
  3. api/publics에서  자신의 호수(4자리)와 부여 받은 비밀번호 입력 후 개인 관리비 확인가능
 
-관리자 계정 생성
+[관리자 계정 생성]
 <img width="700" alt="스크린샷 2021-07-23 오후 5 14 28" src="https://user-images.githubusercontent.com/81959334/126760986-e881e215-d82b-4cdc-bc98-0f5bccc3c93c.png">
-관리자 계정 로그인 후 관리비 입력
+[관리자 계정 로그인 후 관리비 입력]
 <img width="700" alt="스크린샷 2021-07-23 오후 5 12 23" src="https://user-images.githubusercontent.com/81959334/126761019-3e04429e-c2c5-418f-989f-8c10dcb107d3.png">
-개별 호수 계정 입력
+[개별 호수 계정 입력]
 <img width="700" alt="스크린샷 2021-07-23 오후 5 13 33" src="https://user-images.githubusercontent.com/81959334/126761013-67168d8a-885e-4b33-a12a-5741af07774e.png">
-개별 호수 관리비 확인
+[개별 호수 관리비 확인]
 <img width="700" alt="스크린샷 2021-07-23 오후 5 13 46" src="https://user-images.githubusercontent.com/81959334/126761000-540174cb-965c-42a1-a835-db64e3af51c1.png">
 
 
