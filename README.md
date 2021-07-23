@@ -27,10 +27,10 @@ docker 설치 (다운로드)
 
 https://www.docker.com/products/docker-desktop
 
-git clone 파일 실행
+git clone 실행
 ```
+git clone https://github.com/araaaaan/apartment-system.git
 ```
-
 docker compose 실행 
 ```
 $ docker-compose up
@@ -43,8 +43,10 @@ $ docker-compose up
  3. api/publics에서  자신의 호수(4자리)와 부여 받은 비밀번호 입력 후 개인 관리비 확인가능
 
 
-
-
+<img width="708" alt="스크린샷 2021-07-23 오후 5 14 28" src="https://user-images.githubusercontent.com/81959334/126760986-e881e215-d82b-4cdc-bc98-0f5bccc3c93c.png">
+<img width="707" alt="스크린샷 2021-07-23 오후 5 13 46" src="https://user-images.githubusercontent.com/81959334/126761000-540174cb-965c-42a1-a835-db64e3af51c1.png">
+<img width="711" alt="스크린샷 2021-07-23 오후 5 13 33" src="https://user-images.githubusercontent.com/81959334/126761013-67168d8a-885e-4b33-a12a-5741af07774e.png">
+<img width="708" alt="스크린샷 2021-07-23 오후 5 12 23" src="https://user-images.githubusercontent.com/81959334/126761019-3e04429e-c2c5-418f-989f-8c10dcb107d3.png">
 
 
 > ## 폴더 구조
