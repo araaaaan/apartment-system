@@ -43,7 +43,6 @@ $ docker-compose up
  3. api/publics에서  자신의 호수(4자리)와 부여 받은 비밀번호 입력 후 개인 관리비 확인가능
 
 [관리자 계정 생성]
-
 <img width="700" alt="스크린샷 2021-07-23 오후 5 14 28" src="https://user-images.githubusercontent.com/81959334/126760986-e881e215-d82b-4cdc-bc98-0f5bccc3c93c.png">
 [관리자 계정 로그인 후 관리비 입력]
 
