@@ -2,11 +2,11 @@ import json
 from rest_framework.test import APITestCase
 from rest_framework      import status
 
-from api.publics.models  import User_APT
+from api.publics.models  import User
 
 class PublicTest(APITestCase):
     def setUp(self):
-        User_APT.objects.create(
+        User.objects.create(
             floor    = "1004",
             password = "0101",
             cost     = "10000.00"

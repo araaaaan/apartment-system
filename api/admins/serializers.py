@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from api.publics.models import User_APT
+from api.publics.models import User
 
 class AccountSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = User_APT
+        model = User
         fields = ('floor','cost',)

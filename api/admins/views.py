@@ -6,11 +6,11 @@ from rest_framework.viewsets       import ModelViewSet
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 
 
-from api.publics.models      import User_APT
+from api.publics.models      import User
 from api.publics.serializers import UserSerializer
 
 class AccountViewSet(viewsets.ModelViewSet):
-    queryset               = User_APT.objects.all()
+    queryset               = User.objects.all()
     serializer_class       = UserSerializer
     authentication_classes = [TokenAuthentication, SessionAuthentication]
     permission_classes     = [IsAuthenticated]

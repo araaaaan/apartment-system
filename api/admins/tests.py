@@ -6,7 +6,7 @@ from rest_framework                  import status
 from rest_framework.authtoken.models import Token
 from rest_framework.test             import APITestCase
 
-from api.publics.models import User_APT
+from api.publics.models import User
         
 class Admintest(APITestCase):
     def setUp(self):
@@ -16,7 +16,7 @@ class Admintest(APITestCase):
             is_staff = True
         )
         self.token = Token.objects.create(user=self.user)
-        User_APT.objects.create(
+        User.objects.create(
             floor    = "1004",
             password = "1234",
             cost     = 10000.00
