@@ -1,29 +1,28 @@
 pipeline {
-   agent {
+    agent {
         docker {
-            image 'python:3.8'
-            args  '-u root:root -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker'
+            image "python:3.8"
+            args "-u root:root"
         }
     }
     stages {
-        stage('1. Environment Setup') {
+        stage('Environment Setup') {
             steps { 
-                echo "=============="
+                echo "The build number is ${env.BUILD_NUMBER}"
+                echo "You can also use \${BUILD_NUMBER} -> ${BUILD_NUMBER}"
+                sh 'apt-get -y update'
+                sh 'apt-get -y install gcc build-essential zlib1g-dev make'
+                sh "pip install -r requirements.txt"
+                }
+        }
+        stage('Build-test') {
+            steps {
+                sh 'python manage.py test'
             }
         }
-        stage('Build-test-2') {
-            steps{  
-                echo 'Build-test-2' 
-            }
-        }
-        stage('Build-test-3') {
-            steps{  
-                echo 'Build-test-3' 
-            }
-        }
-        stage('Build-test-4') {
-            steps{  
-                echo 'Build-test-4' 
+        stage('Staging deploy') {
+            steps {
+                echo 'Build-test-t'
             }
         }
     }
