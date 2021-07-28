@@ -1,8 +1,7 @@
 from django.urls import path
 
-from .views import PublicUserDetailView
+from .views import RoomAPIView
 
 urlpatterns = [
-    # path('', RoomAPIView.as_view()),
-    path('/<int:pk>', PublicUserDetailView.as_view())
+    path('', RoomAPIView.as_view()),
 ]

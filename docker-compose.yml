@@ -1,45 +1,42 @@
 version: '3'
 
-volumes:
-  data: {}
-
 services:
-  django:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.dev
-    volumes:
-      - .:/app/
-    environment:
-      - DJANGO_DB_HOST=db
-      - DJANGO_DB_NAME=apartment  
-      - DJANGO_DB_PASSWORD=dmgkgk12
-      - DJANGO_DB_USER=root  
-      - DJANGO_DB_PORT=3306
-      - SECRET_KEY=SECRET_KEY
-    ports:
-      - 8000:8000
-    restart: always  
-    depends_on:
-      - db
-    command: >-
-        sh -c 'python manage.py makemigrations &&
-               python manage.py migrate &&
-               python manage.py runserver 0:8000'  
-
   db:
     image: mysql
+    volumes:
+      - ./db_data:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=apartment
       - MYSQL_ROOT_PASSWORD=dmgkgk12
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
       - TZ=Asia/Seoul
-    ports: 
-      - 3306:3306      
     command:
       - --default-authentication-plugin=mysql_native_password
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_general_ci
-    volumes:
-      - data:/var/lib/mysql
+    ports: 
+      - 3306:3306
     platform: linux/x86_64
+
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always  
+    volumes:
+      - .:/usr/src/app
+    command: >-
+        sh -c 'python manage.py migrate &&
+               python manage.py runserver 0:8000'      
+
+    environment:
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_NAME=apartment  
+      - DJANGO_DB_PASSWORD=dmgkgk12
+      - DJANGO_DB_USER=root  
+      - DJANGO_DB_PORT=3306  
+     
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
