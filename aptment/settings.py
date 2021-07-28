@@ -9,9 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
-from my_settings import SECRET_KEY, DATABASES
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,18 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'corsheaders',
-    'api.admins',
-    'api.publics',
+   
+   
     'rest_framework.authtoken',
     'rest_framework',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'rest_auth',
-    'rest_auth.registration',
-    
-    
+    'rest_auth.registration',  
+    'api.admins',
+    'api.publics',
+    'corsheaders',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,7 +97,20 @@ WSGI_APPLICATION = 'aptment.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = DATABASES
+DATABASES = {
+    'default' : {
+        'ENGINE'  : 'django.db.backends.mysql',
+        'NAME'    : os.environ.get('DJANGO_NAME'),
+        'USER'    : os.environ.get('DJANGO_USER'),
+        'PASSWORD': os.environ.get('DJANGO_PASSWORD'),
+        'HOST'    : os.environ.get('DJANGO_HOST'),
+        'PORT'    : os.environ.get('DJANGO_PORT'),
+        'OPTIONS' : {
+            'charset': 'utf8mb4'
+        }
+    }
+}
+
 
 
 # Password validation
@@ -167,6 +179,7 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-# LOGGING  = LOGGING
 
 SITE_ID = 1
+
+AUTH_USER_MODEL = 'api.publics.User'
