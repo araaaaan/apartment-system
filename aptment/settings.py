@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import pymysql  
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -33,7 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
    
-   
-    'rest_framework.authtoken',
     'rest_framework',
+    'rest_framework.authtoken',
+    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -100,17 +102,16 @@ WSGI_APPLICATION = 'aptment.wsgi.application'
 DATABASES = {
     'default' : {
         'ENGINE'  : 'django.db.backends.mysql',
-        'NAME'    : os.environ.get('DJANGO_NAME'),
-        'USER'    : os.environ.get('DJANGO_USER'),
-        'PASSWORD': os.environ.get('DJANGO_PASSWORD'),
-        'HOST'    : os.environ.get('DJANGO_HOST'),
-        'PORT'    : os.environ.get('DJANGO_PORT'),
+        'NAME'    : os.environ.get('DJANGO_NAME',''),
+        'USER'    : os.environ.get('DJANGO_USER',''),
+        'PASSWORD': os.environ.get('DJANGO_PASSWORD',''),
+        'HOST'    : os.environ.get('DJANGO_HOST',''),
+        'PORT'    : os.environ.get('DJANGO_PORT',''),
         'OPTIONS' : {
             'charset': 'utf8mb4'
         }
     }
 }
-
 
 
 # Password validation
@@ -182,4 +183,10 @@ CORS_ALLOW_HEADERS = (
 
 SITE_ID = 1
 
-AUTH_USER_MODEL = 'api.publics.User'
+AUTH_USER_MODEL                   = 'publics.User'
+ACCOUNT_AUTHENTICATION_METHOD     = 'floor'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED         = False
+
+pymysql.version_info = (1, 4, 2, "final", 0)               
+pymysql.install_as_MySQLdb()
