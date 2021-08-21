@@ -3,6 +3,44 @@
 * 관리자 : 각 세대의 관리비 확인 가능
 * 입주민 : 개별 관리비 내역 확인 가능
 
+> ## 폴더 구조
+```
+.
+├── Dockerfile
+├── README.md
+├── api
+│   ├── admins
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── publics
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   └── urls.py
+├── aptment
+│   ├── asgi.py
+│   ├── permissions.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── clients
+│   └── token-auth-test.py
+├── docker-compose.yml
+├── manage.py
+├── my_settings.py
+└── requirements.txt
+```
+
+
 >## 관리자 권한 API
 - 전 세대별 관리비 확인용 관리자 생성을 할 수 있습니다.
 
@@ -58,43 +96,10 @@ $ docker-compose up
 
 <img width="700" alt="스크린샷 2021-07-23 오후 5 13 46" src="https://user-images.githubusercontent.com/81959334/126761000-540174cb-965c-42a1-a835-db64e3af51c1.png">
 
-
-
-> ## 폴더 구조
-```
-.
-├── Dockerfile
-├── README.md
-├── api
-│   ├── admins
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── tests.py
-│   │   ├── urls.py
-│   │   └── views.py
-│   ├── publics
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── tests.py
-│   │   ├── urls.py
-│   │   └── views.py
-│   └── urls.py
-├── aptment
-│   ├── asgi.py
-│   ├── permissions.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── clients
-│   └── token-auth-test.py
-├── docker-compose.yml
-├── manage.py
-├── my_settings.py
-└── requirements.txt
-```
-
-
+ **기능 별 url**
+|기능|url|
+|:---:|:---:|
+|관리자 권한 부여|api/admin/register|
+|전체 관리비 확인|api/admin|
+|호수 별 관리비 확인|api/publics|
+ 
