@@ -97,7 +97,7 @@ $ docker-compose up
 <img width="700" alt="스크린샷 2021-07-23 오후 5 13 46" src="https://user-images.githubusercontent.com/81959334/126761000-540174cb-965c-42a1-a835-db64e3af51c1.png">
 
  **기능 별 url**
-|기능|url|
+|기능|URL|
 |:---:|:---:|
 |관리자 권한 부여|api/admin/register|
 |전체 관리비 확인|api/admin|
